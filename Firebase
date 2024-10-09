@@ -1,0 +1,20 @@
+import firebase_admin
+from firebase_admin import credentials, db
+
+# Initialize Firebase
+cred = credentials.Certificate('File path**************************')
+firebase_admin.initialize_app(cred,
+{
+    'databaseURL': '******************************************'
+})
+
+# Example text to upload
+text = 'HAi'  # Replace this with the actual text you want to upload
+
+# Upload to Realtime Database
+if text:
+    # Create a reference to the path where you want to store the data
+    ref = db.reference('RGB/')
+    ref.set({'Data': text})
+
+print("Text has been uploaded to Firebase Realtime Database.")
